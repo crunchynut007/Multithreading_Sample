@@ -6,10 +6,10 @@ namespace Multithreading_Sample
 	class Program
 	{
 		//static int[] dataset = { 1, 2, 5, 9, 29, 89, 149, 500 };
-		static int[] dataset = new int[200000000];
+		static int[] dataset = new int[40000000];
 		static long totalSum = 0;
 
-		//Generate random numbers from 0 to 10 for the data set 
+		//Generate random numbers from 0 to 9 for the data set 
 		public static void PopulateDataset(int[] yourDataset) {
 			Random rand = new Random();
 			for (int i = 0; i < yourDataset.Length; i++) {

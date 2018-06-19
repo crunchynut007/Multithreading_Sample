@@ -7,7 +7,7 @@ namespace Multithreading_Sample
 	{
 		readonly int numberOfProcessors = Environment.ProcessorCount;
 		private int[] portionResults = new int[Environment.ProcessorCount];
-		private Object thisLock = new Object();
+		private Object myLock = new Object();
 
 
 		public long SumDataset(int[] arrayDataToCheck) {
@@ -20,7 +20,7 @@ namespace Multithreading_Sample
 				int id = i;
 				Thread thread = new Thread(() => SumOfEachPortionInDataset(id, arrayDataToCheck, datasetPortionLength));
 				threads[i] = thread;
-				threads[i].IsBackground = true;
+				//threads[i].IsBackground = true;
 				threads[i].Start();
 			}
 
@@ -37,7 +37,7 @@ namespace Multithreading_Sample
 			for (int i = threadIndex * portionElementSize; i < (threadIndex + 1) * portionElementSize; i++) {
 					thisPortionTotal += data[i];
 			}
-			lock (thisLock) {
+			lock (myLock) {
 				portionResults[threadIndex] = thisPortionTotal;
 			}
 		}
