@@ -10,14 +10,14 @@ namespace Multithreading_Sample
 		static long Totalsum = 0;
 
 		//Generate random numbers from 0 to 10 for the data set 
-		public static void PopulateArray(int[] array) {
+		public static void PopulateDataset(int[] yourDataset) {
 			Random rand = new Random();
-			for (int i = 0; i < array.Length; i++) {
-				array[i] = rand.Next(10);
+			for (int i = 0; i < yourDataset.Length; i++) {
+				yourDataset[i] = rand.Next(10);
 			}
 		}
 
-		public static long NonthreadedSum(int[] array) {
+		public static long NonThreadedSumOfDataset(int[] array) {
 			long sum = 0;
 			for (int i = 0; i < array.Length; i++) {
 				sum += array[i];
@@ -26,13 +26,13 @@ namespace Multithreading_Sample
 		}
 
 		static void Main(string[] args) {
-			PopulateArray(dataset);
+			PopulateDataset(dataset);
 			Stopwatch watch = new Stopwatch();
 			MultiThreadedSummation MultithreadedSum = new MultiThreadedSummation();
 
 			//totals the elements of the array on a single thread
 			watch.Start();
-			Totalsum = NonthreadedSum(dataset);
+			Totalsum = NonThreadedSumOfDataset(dataset);
 			watch.Stop();
 			Console.WriteLine(Totalsum);
 			Console.WriteLine(watch.Elapsed);
