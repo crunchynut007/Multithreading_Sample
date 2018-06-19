@@ -42,7 +42,7 @@ namespace Multithreading_Sample
 
 			//totals the elements of the array on multiple threads
 			watch.Start();
-			Totalsum = MultithreadedSum.SumArray(dataset);
+			Totalsum = MultithreadedSum.SumDataset(dataset);
 			watch.Stop();
 			Console.WriteLine(value: Totalsum);
 			Console.WriteLine(watch.Elapsed);

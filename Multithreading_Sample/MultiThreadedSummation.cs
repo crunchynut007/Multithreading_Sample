@@ -9,7 +9,7 @@ namespace Multithreading_Sample
 		int[] portionResults = new int[Environment.ProcessorCount];
 
 
-		public long SumArray(int[] arrayDataToCheck) {
+		public long SumDataset(int[] arrayDataToCheck) {
 			//splits dataset into equal block sizes. Must be divisible by your processor count
 			int datasetPortionLength = arrayDataToCheck.Length / numberOfProcessors;
 
